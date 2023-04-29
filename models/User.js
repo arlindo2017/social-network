@@ -18,7 +18,12 @@ const userSchema = new Schema(
       //Match a valid email address
       match: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
     },
-    thoughts: [thoughtSchema],
+    thoughts: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Thought",
+      },
+    ],
     //Array of IDs that reference the User Model
     friends: [
       {
