@@ -1,6 +1,6 @@
 //Import libraries
 const dayjs = require("dayjs");
-const { Schema, Types } = require("mongoose");
+const { Schema, model } = require("mongoose");
 const reactionSchema = require("./Reaction");
 
 // Define thoughtSchema
