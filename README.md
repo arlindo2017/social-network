@@ -38,11 +38,17 @@ Add/Delete Reactions to a specific Thought
 
 ## Screenshots
 
-Users
-![Users](./Assets/products.jpg)
+Users  
+![All Users](./assets/img/all-users.jpg)  
+User by ID  
+![User by ID](./assets/img/user-by-id.jpg)  
 
-Thoughts
-![Thoughts](./Assets/tags.jpg)
+Thoughts  
+![Thoughts](./assets/img/all-thoughts.jpg)
+
+Thought by ID  
+![Thoughts](./assets/img/thought-by-id.jpg)
+
 
 
 
