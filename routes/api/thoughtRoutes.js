@@ -1,5 +1,4 @@
 const router = require("express").Router();
-// const { up } = require("inquirer/lib/utils/readline.js");
 const {
   getThoughts,
   getSingleThought,

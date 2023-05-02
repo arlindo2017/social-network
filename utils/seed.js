@@ -1,7 +1,5 @@
-const connection = require("../config/connection");
 const { userData, thoughtData, reactionData } = require("./data");
 const { User, Thought } = require("../models");
-// const { reactionSchema } = require("../models/Reaction");
 
 const seedDatabase = async () => {
   try {
