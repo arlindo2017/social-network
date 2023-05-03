@@ -1,3 +1,4 @@
+const { json } = require("express");
 const { Thought, User } = require("../models");
 
 module.exports = {
@@ -25,20 +26,18 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
   // Create a new Thought and add thought to user thoughts
+
   createThought(req, res) {
     Thought.create(req.body)
-      .then((createdthought) => {
-        if (!createdthought) {
-          res.status(404).json({ message: "No user with that ID was found!" });
-        } else {
-          return User.findOneAndUpdate(
-            { _id: req.body.userId },
-            { $addToSet: { thoughts: createdthought._id } },
-            { new: true }
-          );
-        }
+      .then((createdThought) => {
+        return User.findOneAndUpdate(
+          { _id: req.body.userId },
+          { $addToSet: { thoughts: createdThought._id } },
+          { new: true }
+        ).then(() => {
+          res.json(createdThought);
+        });
       })
-      .then((thought) => res.json(thought))
       .catch((err) => {
         console.log(err);
         return res.status(500).json(err);
@@ -82,21 +81,19 @@ module.exports = {
     )
       .then((createdReaction) => {
         if (!createdReaction) {
-          res.status(404).json({ message: "No user with that ID was found!" });
+          res
+            .status(404)
+            .json({ message: "No thought with that ID was found!" });
         } else {
-          return User.findOneAndUpdate(
-            { _id: req.body.userId },
+          User.findOneAndUpdate(
+            { _id: createdReaction.userId },
             { $addToSet: { thoughts: createdReaction._id } },
             { new: true }
           );
         }
+        return res.json(createdReaction);
       })
-      .then((thought) => {
-        if (!thought) {
-          return res.status(404).json({ message: "No thought with that ID" });
-        }
-        res.json(thought);
-      })
+
       .catch((err) => res.status(500).json(err));
   },
 

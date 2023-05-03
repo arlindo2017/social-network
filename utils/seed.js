@@ -1,6 +1,10 @@
+// Connects to mongoDB
+const connection = require("../config/connection");
+// Import Models and Schemas
 const { userData, thoughtData, reactionData } = require("./data");
 const { User, Thought } = require("../models");
 
+//Seed Database
 const seedDatabase = async () => {
   try {
     // Delete existing data
