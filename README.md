@@ -58,4 +58,4 @@ Thought by ID
 - GET/PUT/POST/DELETE API Routes
 
 ## Walkthrough Video
-[Walkthrough Video](https://youtu.be/r0gmwCzweGk)
+[Walkthrough Video](https://www.youtube.com/watch?v=r0gmwCzweGk)
